@@ -1,6 +1,6 @@
 package com.fincons.classic.job;
 
-import com.classic.domain.CreditCard;
+import com.fincons.classic.domain.CreditCard;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;

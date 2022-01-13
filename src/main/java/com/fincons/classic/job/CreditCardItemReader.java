@@ -1,7 +1,7 @@
 package com.fincons.classic.job;
 
-import com.classic.domain.CreditCard;
-import com.classic.repository.CreditCardRepository;
+import com.fincons.classic.domain.CreditCard;
+import com.fincons.classic.repository.CreditCardRepository;
 import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.annotation.BeforeStep;
 import org.springframework.batch.item.ItemReader;

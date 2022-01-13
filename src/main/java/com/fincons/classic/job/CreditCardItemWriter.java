@@ -1,7 +1,7 @@
 package com.fincons.classic.job;
 
-import com.classic.domain.CreditCardRisk;
-import com.classic.repository.CreditCardRiskRespository;
+import com.fincons.classic.domain.CreditCardRisk;
+import com.fincons.classic.repository.CreditCardRiskRespository;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.stereotype.Component;
 
