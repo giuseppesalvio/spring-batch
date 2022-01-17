@@ -11,13 +11,15 @@ import com.fincons.classic.listener.CreditCardItemProcessListener;
 import com.fincons.classic.listener.CreditCardJobExecutionListener;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.step.tasklet.TaskletStep;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-//@Configuration
-//@EnableBatchProcessing
+@Configuration
+@EnableBatchProcessing
 public class JobBatchCreditCardCsvConfiguration {
 
     public final JobBuilderFactory jobBuilderFactory;
@@ -53,7 +55,7 @@ public class JobBatchCreditCardCsvConfiguration {
 
     @Bean
     public Step step() {
-        TaskletStep step = stepBuilderFactory.get("step-1")
+        return stepBuilderFactory.get("step-1")
                 .<CreditCard, CreditCardRisk>chunk(2)
                 .reader(reader)
                 .processor(processor)
@@ -62,7 +64,6 @@ public class JobBatchCreditCardCsvConfiguration {
                 .listener(creditCardItemProcessListener)
                 .listener(writerListener)
                 .build();
-        return step;
     }
 
 }
