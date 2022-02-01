@@ -12,7 +12,7 @@ import java.util.Iterator;
 @Component
 public class CreditCardItemReader implements ItemReader<CreditCard> {
 
-    private Iterator<CreditCard> usersIterator;
+    private Iterator<CreditCard> creditCardIterator;
     private final CreditCardRepository respository;
 
     public CreditCardItemReader(CreditCardRepository respository) {
@@ -21,13 +21,13 @@ public class CreditCardItemReader implements ItemReader<CreditCard> {
 
     @BeforeStep
     public void before(StepExecution stepExecution) {
-        usersIterator = respository.findAll().iterator();
+        creditCardIterator = respository.findAll().iterator();
     }
 
     @Override
     public CreditCard read() {
-        if (usersIterator != null && usersIterator.hasNext()) {
-            return usersIterator.next();
+        if (creditCardIterator != null && creditCardIterator.hasNext()) {
+            return creditCardIterator.next();
         } else {
             return null;
         }

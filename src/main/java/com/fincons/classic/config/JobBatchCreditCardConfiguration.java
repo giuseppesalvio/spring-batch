@@ -46,7 +46,7 @@ public class JobBatchCreditCardConfiguration {
 
     @Bean
     public Job job(Step step, CreditCardJobExecutionListener jobExecutionListener) {
-        return jobBuilderFactory.get("job-1")
+        return jobBuilderFactory.get("MyJob")
                 .listener(jobExecutionListener)
                 .flow(step)
                 .end()
