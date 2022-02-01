@@ -46,7 +46,7 @@ public class JobBatchCreditCardCsvConfiguration {
 
     @Bean
     public Job job(Step step, CreditCardJobExecutionListener jobExecutionListener) {
-        return jobBuilderFactory.get("job-1")
+        return jobBuilderFactory.get("job")
                 .listener(jobExecutionListener)
                 .flow(step)
                 .end()

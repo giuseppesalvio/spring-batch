@@ -14,7 +14,7 @@ public class CreditCardCsvItemReader extends FlatFileItemReader<CreditCard> impl
 
     public CreditCardCsvItemReader() {
         setResource(new FileSystemResource("inputData.csv"));
-        //setLinesToSkip(1);
+        setLinesToSkip(1);
         setLineMapper(getDefaultLineMapper());
     }
 
