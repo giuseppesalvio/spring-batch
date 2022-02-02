@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JobInvokerController {
 
-  final JobLauncher jobLauncher;
-  final Job jobBatchCreditCard;
+    final JobLauncher jobLauncher;
+    final Job jobBatchCreditCard;
 
-  public JobInvokerController(JobLauncher jobLauncher, Job jobBatchCreditCard) {
-    this.jobLauncher = jobLauncher;
-    this.jobBatchCreditCard = jobBatchCreditCard;
-  }
+    public JobInvokerController(JobLauncher jobLauncher, Job jobBatchCreditCard) {
+        this.jobLauncher = jobLauncher;
+        this.jobBatchCreditCard = jobBatchCreditCard;
+    }
 
-  @RequestMapping("/invokejob")
-  public String handle() throws Exception {
+    @RequestMapping("/invokejob")
+    public String handle() throws Exception {
 
-    JobParameters jobParameters =
-        new JobParametersBuilder().addLong("time", System.currentTimeMillis()).toJobParameters();
-    jobLauncher.run(jobBatchCreditCard, jobParameters);
+        JobParameters jobParameters =
+                new JobParametersBuilder().addLong("time", System.currentTimeMillis()).toJobParameters();
+        jobLauncher.run(jobBatchCreditCard, jobParameters);
 
-    return "Batch job has been invoked";
-  }
+        return "Batch job has been invoked";
+    }
 
 }

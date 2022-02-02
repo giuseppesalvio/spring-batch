@@ -13,15 +13,15 @@ import java.util.Iterator;
 public class CreditCardItemReader implements ItemReader<CreditCard> {
 
     private Iterator<CreditCard> creditCardIterator;
-    private final CreditCardRepository respository;
+    private final CreditCardRepository creditCardRepository;
 
     public CreditCardItemReader(CreditCardRepository respository) {
-        this.respository = respository;
+        this.creditCardRepository = respository;
     }
 
     @BeforeStep
     public void before(StepExecution stepExecution) {
-        creditCardIterator = respository.findAll().iterator();
+        creditCardIterator = creditCardRepository.findAll().iterator();
     }
 
     @Override

@@ -46,7 +46,8 @@ public class JobBatchCreditCardConfiguration {
 
     @Bean
     public Job job(Step step, CreditCardJobExecutionListener jobExecutionListener) {
-        return jobBuilderFactory.get("MyJob")
+        return jobBuilderFactory
+                .get("MyJob")
                 .listener(jobExecutionListener)
                 .flow(step)
                 .end()
@@ -56,7 +57,8 @@ public class JobBatchCreditCardConfiguration {
     @Bean
     public Step step() {
 
-        TaskletStep step = stepBuilderFactory.get("step-1")
+        TaskletStep step = stepBuilderFactory
+                .get("step-1")
                 .<CreditCard, CreditCardRisk>chunk(2)
                 .reader(reader)
                 .processor(processor)
@@ -64,6 +66,7 @@ public class JobBatchCreditCardConfiguration {
                 .listener(readerListener)
                 .listener(creditCardItemProcessListener)
                 .listener(writerListener)
+                .listener(jobExecutionListener)
                 .build();
         return step;
     }
